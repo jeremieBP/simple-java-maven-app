@@ -14,7 +14,12 @@ pipeline {
     }
     stage('Test') {
       steps {
-        echo 'Test adding a step with BlueOcean'
+        sh 'sh \'mvn test\''
+      }
+    }
+    stage('Deliver') {
+      steps {
+        sh 'sh \'./jenkins/scripts/deliver.sh\''
       }
     }
   }
